@@ -1,0 +1,35 @@
+{
+  "settings": {
+    "jest.jestCommandLine": "yarn run test",
+    "files.exclude": {
+      ".git": true,
+      ".DS_Store": true,
+      ".vscode": true,
+      ".expo": true,
+      "**/node_modules": true,
+      "**/yarn-error.log": true,
+      "**/junit.xml": true,
+      "**/report.json": true,
+      "frontend": true,
+      "backend": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "terminal.integrated.cwd": "${fileDirname}",
+  },
+  "folders": [
+    {
+      "name": "Frontend",
+      "path": "frontend"
+    },
+    {
+      "name": "Backend",
+      "path": "backend"
+    },
+    {
+      "name": "Monorepo root",
+      "path": "."
+    }
+  ]
+}
