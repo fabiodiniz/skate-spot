@@ -4,6 +4,7 @@
     "strict": true,
     "jsx": "react-jsx",
     "module": "esnext",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "typeRoots": ["node_modules/@types"]
   }
 }
