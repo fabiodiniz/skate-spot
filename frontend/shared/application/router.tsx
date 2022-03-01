@@ -1,0 +1,52 @@
+import { NavigationContainer, Route } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
+import { createURL } from 'expo-linking'
+import { Text } from 'react-native'
+import LoginFactory from '../../authentication/application/loginFactory'
+import HomeFactory from './homeFactory'
+
+const formatter = (
+  _options: Record<string, any> | undefined,
+  route: Route<string, object | undefined> | undefined
+) => `${route?.name} - SkateSpot - Onde os picos DIY ganham força!`
+
+const linking = {
+  prefixes: [createURL('/'), 'skate-spot://'],
+  config: {
+    screens: {
+      Home: '/',
+      Login: '/login',
+    },
+  },
+}
+
+const Stack = createStackNavigator()
+
+const Router: React.FC = () => {
+  return (
+    <NavigationContainer
+      linking={linking}
+      fallback={<Text>Loading…</Text>}
+      documentTitle={{ formatter }}
+    >
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeFactory}
+          options={{
+            headerShown: false,
+          }}
+        ></Stack.Screen>
+        <Stack.Screen
+          name="Login"
+          component={LoginFactory}
+          options={{
+            headerShown: false,
+          }}
+        ></Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
+}
+
+export default Router

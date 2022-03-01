@@ -1,10 +1,12 @@
 {
   "expo": {
-    "name": "skate-spot",
+    "name": "SkateSpot - Onde os picos DIY ganham força!",
     "slug": "skate-spot",
     "version": "1.0.0",
+    "scheme": "skate-stop",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "entryPoint": "./App.tsx",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -13,9 +15,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
