@@ -1,12 +1,4 @@
-import { Controller, Get } from '@nestjs/common'
-import { SharedService } from './shared.service'
+import { Controller } from '@nestjs/common'
 
 @Controller()
-export class SharedController {
-  constructor(private readonly appService: SharedService) {}
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello()
-  }
-}
+export class SharedController {}
