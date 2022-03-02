@@ -1,3 +1,3 @@
 # SkateSpot
 
-Monorepo das aplicações Web/Mobile + API feito para organização de ações colaborativas em "picos DIY" de skate
+Web + Mobile + API monorepo of an application for DIY skate community 🛹
