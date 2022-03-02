@@ -1,17 +1,17 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { AppController } from './app.controller'
-import { AppService } from './app.service'
+import { SharedController } from './shared.controller'
+import { SharedService } from './shared.service'
 
 describe('AppController', () => {
-  let appController: AppController
+  let appController: SharedController
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+      controllers: [SharedController],
+      providers: [SharedService],
     }).compile()
 
-    appController = app.get<AppController>(AppController)
+    appController = app.get<SharedController>(SharedController)
   })
 
   describe('root', () => {

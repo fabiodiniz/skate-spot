@@ -1,10 +1,10 @@
 import {
   LoginCaseInput,
-  ILoginCase,
+  LoginCase,
   LoginCaseOutput,
-} from '../../domain/useCases/iLoginCase'
+} from '../../domain/useCases/loginCase'
 
-export class LoginCaseInteractor implements ILoginCase {
+export class LoginCaseImpl implements LoginCase {
   async execute(params: LoginCaseInput): LoginCaseOutput {
     console.log(params)
 

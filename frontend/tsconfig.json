@@ -5,6 +5,10 @@
     "jsx": "react-jsx",
     "module": "esnext",
     "moduleResolution": "node",
-    "typeRoots": ["node_modules/@types"]
+    "skipLibCheck": true,
+    "typeRoots": ["node_modules/@types"],
+    "paths": {
+      "types": ["./types.d.ts"]
+    }
   }
 }
