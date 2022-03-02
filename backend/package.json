@@ -1,10 +1,9 @@
 {
-  "name": "skate-spot",
+  "name": "skate-spot-backend",
   "version": "0.0.1",
   "description": "",
-  "author": "",
-  "private": true,
-  "license": "UNLICENSED",
+  "author": "Fábio Diniz <contato@fabiodiniz.com.br>",
+  "license": "Copyright Holder",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
