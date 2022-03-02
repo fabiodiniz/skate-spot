@@ -1,8 +1,8 @@
 {
   "name": "skate-spot",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "Fábio Diniz <contato@fabiodiniz.com.br>",
-  "license": "MIT",
+  "license": "Copyright Holder",
   "scripts": {
     "heroku-postbuild": "cd backend && yarn install && yarn global add @nestjs/cli && yarn run build",
     "start": "cd backend && yarn run start:prod"
