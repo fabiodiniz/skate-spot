@@ -1,5 +1,6 @@
+import HomePage from 'shared/presentation/components/home.page'
+
 import React from 'react'
-import HomePage from '../presentation/components/home.page'
 
 export default class HomeFactory extends React.Component implements Factory {
   render() {

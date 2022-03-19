@@ -1,5 +1,6 @@
 {
   "settings": {
+    "typescript.preferences.importModuleSpecifier": "non-relative",
     "jest.jestCommandLine": "yarn run test",
     "jest.disabledWorkspaceFolders": ["Monorepo root"],
     "files.exclude": {
@@ -17,8 +18,17 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnType": true,
     "editor.formatOnSave": true,
+    "eslint.workingDirectories": [
+      {
+        "mode": "auto"
+      }
+    ],
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true
+    },
     "terminal.integrated.cwd": "${fileDirname}",
-    "cSpell.words": ["nestjs"]
+    "cSpell.words": ["nestjs"],
+    "cSpell.language": "en,pt-BR,es"
   },
   "folders": [
     {

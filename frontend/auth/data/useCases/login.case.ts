@@ -1,4 +1,4 @@
-import { Session } from '../../domain/entities/session'
+import { Session } from 'auth/domain/entities/session'
 
 export type LoginCaseInput = {
   email: string

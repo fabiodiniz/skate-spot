@@ -5,7 +5,7 @@
   "author": "Fábio Diniz <contato@fabiodiniz.com.br>",
   "license": "Copyright Holder",
   "scripts": {
-    "start": "expo start",
+    "serve": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

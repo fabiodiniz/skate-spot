@@ -1,5 +1,6 @@
+import LoginPage from 'auth/presentation/components/login.page'
+
 import { render } from '@testing-library/react-native'
-import LoginPage from './login.page'
 
 const makeSut = () => {
   const sut = render(<LoginPage />)

@@ -1,12 +1,13 @@
+import LoginFactory from 'auth/application/login.factory'
+import HomeFactory from 'shared/application/home.factory'
+
 import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createURL } from 'expo-linking'
 import { Text } from 'react-native'
-import LoginFactory from '../../auth/application/login.factory'
-import HomeFactory from './shared/application/home.factory'
 
 const formatter = (
-  _options: Record<string, any> | undefined,
+  _options: Record<string, unknown> | undefined,
   route: Route<string, object | undefined> | undefined
 ) => `${route?.name} - SkateSpot - Onde os picos DIY ganham força!`
 
