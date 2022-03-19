@@ -1,0 +1,91 @@
+env:
+  browser: true
+  es2021: true
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:@typescript-eslint/recommended
+settings:
+  react:
+    version: detect
+parser: '@typescript-eslint/parser'
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 13
+  sourceType: module
+plugins:
+  - react
+  - '@typescript-eslint'
+  - 'eslint-plugin-import-helpers'
+  - prettier
+rules:
+  prettier/prettier:
+    - error
+  arrow-parens: 'off'
+  one-var: 'off'
+  comma-dangle:
+    - error
+    - only-multiline
+  no-multiple-empty-lines:
+    - error
+    - max: 1
+      maxEOF: 1
+      maxBOF: 0
+  array-bracket-spacing:
+    - error
+    - never
+  object-curly-spacing:
+    - error
+    - always
+  curly:
+    - error
+    - multi-line
+  import/first: 'off'
+  no-trailing-spaces: error
+  block-spacing: error
+  no-debugger: error
+  linebreak-style:
+    - error
+    - unix
+  semi:
+    - error
+    - never
+  no-restricted-imports:
+    - error
+    - patterns:
+        - '.*'
+  import-helpers/order-imports:
+    - warn
+    - newlinesBetween: always
+      groups:
+        # DOMAIN LAYER
+        - /entities/
+        - /\.rule/
+        - /\.error/
+        # DATA LAYER
+        - /\.case$/
+        - /\.caseImpl/
+        - /\.port/
+        - /\.mock/
+        - /\.fake/
+        # PRESENTATION LAYER
+        - /\.page/
+        - /\.template/
+        - /\.organism/
+        - /\.molecule/
+        - /\.atom/
+        - /\.style/
+        - /\.hook/
+        # INFRA LAYER
+        - [/\.adapter/, /infra/]
+        # APPLICATION LAYER
+        - /\.factory/
+        - module
+        - [parent, sibling, index]
+      alphabetize:
+        order: asc
+        ignoreCase: true
+  react/jsx-uses-vars: error
+  react/jsx-uses-react: off
+  react/react-in-jsx-scope: off
