@@ -1,4 +1,4 @@
 import { registerRootComponent } from 'expo'
-import Router from './shared/application/router'
+import Router from './router'
 
 export default registerRootComponent(Router)
