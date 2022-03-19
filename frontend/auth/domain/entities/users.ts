@@ -3,8 +3,3 @@ export type User = {
   email: string
   name?: string
 }
-
-export type Session = {
-  user: User
-  token: string
-}

@@ -1,8 +1,4 @@
-import {
-  LoginCaseInput,
-  LoginCase,
-  LoginCaseOutput,
-} from '../../domain/useCases/loginCase'
+import { LoginCaseInput, LoginCase, LoginCaseOutput } from './login.case'
 
 export default class LoginCaseImpl implements LoginCase {
   async execute(params: LoginCaseInput): LoginCaseOutput {

@@ -1,5 +1,4 @@
 interface Factory {
-  useCases?: UseCases
   render: () => JSX.Element
 }
 
