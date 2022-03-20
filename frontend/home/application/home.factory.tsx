@@ -1,4 +1,4 @@
-import HomePage from 'shared/presentation/components/home.page'
+import HomePage from 'home/presentation/components/home.page'
 
 import React from 'react'
 

@@ -1,5 +1,5 @@
 import LoginFactory from 'auth/application/login.factory'
-import HomeFactory from 'shared/application/home.factory'
+import HomeFactory from 'home/application/home.factory'
 
 import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -30,21 +30,17 @@ const Router: React.FC = () => {
       fallback={<Text>Loading…</Text>}
       documentTitle={{ formatter }}
     >
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Home"
           component={HomeFactory}
-          options={{
-            headerShown: false,
-          }}
-        ></Stack.Screen>
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Login"
           component={LoginFactory}
-          options={{
-            headerShown: false,
-          }}
-        ></Stack.Screen>
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
