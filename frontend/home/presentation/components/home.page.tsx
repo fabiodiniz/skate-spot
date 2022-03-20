@@ -1,15 +1,15 @@
-import { SafeAreaView, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import styled from 'styled-components/native'
 
 const HomePage: React.FC = () => {
   return (
-    <Wrapper testID="HomePage">
+    <StyledPage testID="HomePage">
       <StyledText>Página inicial</StyledText>
-    </Wrapper>
+    </StyledPage>
   )
 }
 
-const Wrapper = styled(SafeAreaView)`
+const StyledPage = styled(View)`
   padding: 100px;
   align-items: center;
   justify-content: center;
