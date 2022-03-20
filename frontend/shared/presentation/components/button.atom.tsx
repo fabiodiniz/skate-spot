@@ -61,6 +61,8 @@ const StyledText = styled(Text)<CustomProps>`
   font-size: 14px;
   text-transform: uppercase;
   font-weight: bold;
+  font-family: 'RobotoSlab_700Bold';
+  text-transform: none;
 `
 
 export default ButtonAtom
