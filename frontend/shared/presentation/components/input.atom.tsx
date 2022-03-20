@@ -19,10 +19,12 @@ const StyledTextInput = styled(TextInput)`
   background-color: #757575;
   border-radius: 10px;
   color: white;
+  font-family: 'RobotoSlab_500Medium';
 `
 
 const StyledText = styled(Text)`
   color: white;
+  font-family: 'RobotoSlab_700Bold';
 `
 
 export default InputAtom
