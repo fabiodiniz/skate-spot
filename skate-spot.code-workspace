@@ -26,9 +26,9 @@
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     },
-    "terminal.integrated.cwd": "${fileDirname}",
-    "cSpell.words": ["nestjs", "Roadmap"],
-    "cSpell.language": "en,pt-BR,es"
+    "terminal.integrated.cwd": "${workspaceFolder}",
+    "cSpell.words": ["nestjs","esbenp","Roadmap"],
+    "cSpell.language": "en,pt-BR,es",
   },
   "folders": [
     {
