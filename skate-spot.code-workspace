@@ -2,7 +2,6 @@
   "settings": {
     "typescript.preferences.importModuleSpecifier": "non-relative",
     "jest.jestCommandLine": "yarn run test",
-    "jest.disabledWorkspaceFolders": ["Monorepo root"],
     "files.exclude": {
       ".git": true,
       ".DS_Store": true,
@@ -12,8 +11,6 @@
       "**/yarn-error.log": true,
       "**/junit.xml": true,
       "**/report.json": true,
-      "frontend": true,
-      "backend": true
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnType": true,
@@ -32,16 +29,8 @@
   },
   "folders": [
     {
-      "name": "Frontend",
-      "path": "frontend"
-    },
-    {
-      "name": "Backend",
-      "path": "backend"
-    },
-    {
-      "name": "Monorepo root",
-      "path": "."
+      "name": "SkateSpot",
+      "path": "./"
     }
   ]
 }
