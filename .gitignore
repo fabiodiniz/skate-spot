@@ -1,5 +1,7 @@
 # compiled output
 node_modules
+web-build
+.expo
 
 # Logs
 logs
