@@ -40,9 +40,7 @@ const ButtonAtom = (props: Props) => {
 
 const StyledTouchableOpacity = styled(TouchableOpacity)`
   border-radius: 50px;
-  opacity: ${props => {
-    if (props.disabled) return 0.5
-  }};
+  opacity: ${props => (props.disabled ? 0.5 : 1)};
 `
 
 const StyledView = styled(View)<CustomProps>`
