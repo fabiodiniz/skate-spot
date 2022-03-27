@@ -1,4 +1,4 @@
-import { HttpRequest, HttpResponse } from 'shared/domain/entities/http'
+import { HttpRequest, HttpResponse } from 'shared/entities/http'
 
 export interface HttpPort<
   RequestBody = unknown,

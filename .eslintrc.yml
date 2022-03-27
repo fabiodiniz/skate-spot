@@ -78,7 +78,7 @@ rules:
         - /\.style/
         - /\.hook/
         # INFRA LAYER
-        - [/\.adapter/, /infra/]
+        - /\.adapter/
         # APPLICATION LAYER
         - /\.factory/
         - module

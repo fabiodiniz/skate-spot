@@ -1,6 +1,6 @@
-import { HttpRequest, HttpResponse } from 'shared/domain/entities/http'
+import { HttpRequest, HttpResponse } from 'shared/entities/http'
 
-import { HttpPort } from 'shared/data/ports/http.port'
+import { HttpPort } from 'shared/ports/http.port'
 
 import axios, { AxiosError, AxiosResponse } from 'axios'
 

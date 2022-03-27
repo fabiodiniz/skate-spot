@@ -6,7 +6,7 @@ const BackgroundMolecule: React.FC = props => {
     <StyledView testID="BackgroundMolecule" {...props}>
       <StyledImage
         style={{ flex: 1 }}
-        source={require('auth/presentation/statics/background.png')}
+        source={require('auth/statics/background.png')}
       />
     </StyledView>
   )
