@@ -1,4 +1,4 @@
-import LoginPage from 'auth/presentation/components/login.page'
+import LoginPage from 'auth/components/login.page'
 
 import { render } from '@testing-library/react-native'
 
