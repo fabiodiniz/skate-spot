@@ -1,3 +1,5 @@
+import theme from 'shared/styles/settings/theme.style'
+
 import { View, Text, TextInput, TextInputProps } from 'react-native'
 import styled from 'styled-components/native'
 
@@ -16,7 +18,7 @@ const InputAtom: React.FC<Props> = (props: Props) => {
 
 const StyledTextInput = styled(TextInput)`
   padding: 15px 12px;
-  background-color: #757575;
+  background-color: ${theme.colors.input};
   border-radius: 10px;
   color: white;
   font-family: 'RobotoSlab_500Medium';
