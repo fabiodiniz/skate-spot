@@ -4,7 +4,9 @@ import HomeFactory from 'home/factories/home.factory'
 import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createURL } from 'expo-linking'
+import { observer } from 'mobx-react-lite'
 import { Text } from 'react-native'
+import RootStore from 'rootStore'
 
 const formatter = (
   _options: Record<string, unknown> | undefined,
@@ -23,7 +25,9 @@ const linking = {
 
 const Stack = createStackNavigator()
 
-const Router: React.FC = () => {
+type Props = { rootStore: RootStore }
+
+const Router: React.FC<Props> = observer(({ rootStore }: Props) => {
   return (
     <NavigationContainer
       linking={linking}
@@ -31,19 +35,20 @@ const Router: React.FC = () => {
       documentTitle={{ formatter }}
     >
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen
-          name="Home"
-          component={HomeFactory}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={LoginFactory}
-          options={{ headerShown: false }}
-        />
+        {rootStore.sessionStore.get() ? (
+          <Stack.Screen
+            name="Home"
+            component={HomeFactory}
+            options={{ headerShown: false }}
+          />
+        ) : (
+          <Stack.Screen name="Login" options={{ headerShown: false }}>
+            {() => <LoginFactory sessionStore={rootStore.sessionStore} />}
+          </Stack.Screen>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   )
-}
+})
 
 export default Router

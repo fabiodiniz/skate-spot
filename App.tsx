@@ -1,4 +1,8 @@
 /* eslint-disable no-restricted-imports */
+import ReloadSessionCaseImpl from 'auth/useCases/classes/reloadSession.caseImpl'
+
+import FirebaseAuthAdapter from 'auth/adapters/firebaseAuth.adapter'
+
 import { useFonts } from '@expo-google-fonts/inter'
 import {
   RobotoSlab_100Thin,
@@ -14,6 +18,7 @@ import {
 import { registerRootComponent } from 'expo'
 import AppLoading from 'expo-app-loading'
 import { initializeApp } from 'firebase/app'
+import RootStore from 'rootStore'
 
 import Router from './router'
 
@@ -25,10 +30,19 @@ const firebaseConfig = {
   storageBucket: 'skatespots-270600.appspot.com',
   messagingSenderId: '178575816099',
   appId: '1:178575816099:web:48f0ffe5e271331acdd616',
-  // measurementId: 'G-7NZEFHV0QN',
+  measurementId: 'G-7NZEFHV0QN',
 }
 
 initializeApp(firebaseConfig)
+
+const rootStore = new RootStore()
+
+const reloadSession = new ReloadSessionCaseImpl(
+  new FirebaseAuthAdapter(),
+  rootStore.sessionStore
+)
+
+reloadSession.execute()
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
@@ -47,7 +61,7 @@ const App: React.FC = () => {
     return <AppLoading />
   }
 
-  return <Router />
+  return <Router rootStore={rootStore} />
 }
 
 export default registerRootComponent(App)
