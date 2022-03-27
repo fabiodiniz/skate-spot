@@ -1,12 +1,13 @@
-import { Session } from 'auth/domain/entities/session'
+import { User } from 'auth/entities/users'
 
 export type LoginCaseInput = {
   email: string
   password: string
 }
 
-export type LoginCaseOutput = Promise<Session>
+export type LoginCaseOutput = Promise<User>
 
 export interface LoginCase extends UseCase {
+  isValid(params: LoginCaseInput): boolean
   execute(params: LoginCaseInput): LoginCaseOutput
 }
