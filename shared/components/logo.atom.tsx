@@ -8,7 +8,7 @@ const LogoAtom: React.FC<Props> = props => {
   return (
     <Image
       testID="LogoAtom"
-      source={require('shared/presentation/statics/logo.png')}
+      source={require('shared/statics/logo.png')}
       {...props}
     />
   )

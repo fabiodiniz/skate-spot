@@ -1,14 +1,24 @@
-import LoginFormOrganism from 'auth/presentation/components/loginForm.organism'
+import { LoginCase } from 'auth/useCases/login.case'
+import { LoginWithGoogleCase } from 'auth/useCases/loginWithGoogle.case'
+import { SignUpWithGoogleCase } from 'auth/useCases/signUpWithGoogle.case'
 
-import BackgroundMolecule from 'auth/presentation/components/background.molecule'
+import LoginFormOrganism from 'auth/components/loginForm.organism'
 
-import LogoAtom from 'shared/presentation/components/logo.atom'
-import SpacerAtom from 'shared/presentation/components/spacer.atom'
+import BackgroundMolecule from 'auth/components/background.molecule'
+
+import LogoAtom from 'shared/components/logo.atom'
+import SpacerAtom from 'shared/components/spacer.atom'
 
 import { ScrollView, View } from 'react-native'
 import styled from 'styled-components/native'
 
-const LoginPage: React.FC = () => {
+type Props = {
+  login: LoginCase
+  loginWithGoogle: LoginWithGoogleCase
+  signUpWithGoogle: SignUpWithGoogleCase
+}
+
+const LoginPage: React.FC<Props> = (props: Props) => {
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
@@ -18,7 +28,11 @@ const LoginPage: React.FC = () => {
       <StyledPage testID="LoginPage">
         <SpacerAtom />
         <StyledLogoAtom />
-        <StyledLoginFormOrganism />
+        <StyledLoginFormOrganism
+          login={props.login}
+          loginWithGoogle={props.loginWithGoogle}
+          signUpWithGoogle={props.signUpWithGoogle}
+        />
         <SpacerAtom />
         <StyledBackground>
           <BackgroundMolecule />
