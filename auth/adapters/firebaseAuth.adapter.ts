@@ -4,11 +4,9 @@ import { FirebaseAuthPort } from 'auth/ports/firebaseAuth.port'
 
 import {
   Auth,
-  browserLocalPersistence,
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
-  setPersistence,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -32,7 +30,6 @@ export default class FirebaseAuthAdapter implements FirebaseAuthPort {
   }
 
   async login(email: string, password: string) {
-    await setPersistence(this.getAuth(), browserLocalPersistence)
     const result = await signInWithEmailAndPassword(
       this.getAuth(),
       email,
@@ -42,7 +39,6 @@ export default class FirebaseAuthAdapter implements FirebaseAuthPort {
   }
 
   async signUpWithGoogle() {
-    await setPersistence(this.getAuth(), browserLocalPersistence)
     const provider = new GoogleAuthProvider()
     const result = await signInWithPopup(this.getAuth(), provider)
     return result.user
