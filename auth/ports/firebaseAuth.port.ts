@@ -4,9 +4,8 @@ import { Auth } from 'firebase/auth'
 
 export interface FirebaseAuthPort {
   getAuth(): Auth
-  getUser(): User | null
+  getUser(): Promise<User | null>
   login(email: string, password: string): Promise<User>
-  loginWithGoogle(): Promise<User>
   signUpWithGoogle(): Promise<User>
   logout(): Promise<boolean>
 }

@@ -1,26 +1,28 @@
 import LoginCaseImpl from 'auth/useCases/classes/login.caseImpl'
-import LoginWithGoogleCaseImpl from 'auth/useCases/classes/loginWithGoogle.caseImpl'
 import SignUpWithGoogleCaseImpl from 'auth/useCases/classes/signUpWithGoogle.caseImpl'
+
+import { SessionStorePort } from 'auth/ports/sessionStore.port'
 
 import LoginPage from 'auth/components/login.page'
 
-import firebaseAuthAdapter from 'auth/adapters/firebaseAuth.adapter'
+import FirebaseAuthAdapter from 'auth/adapters/firebaseAuth.adapter'
 
 import React from 'react'
 
-export default class LoginFactory extends React.Component implements Factory {
-  render() {
-    const firebaseAuth = new firebaseAuthAdapter()
-    const login = new LoginCaseImpl(firebaseAuth)
-    const loginWithGoogle = new LoginWithGoogleCaseImpl(firebaseAuth)
-    const signUpWithGoogle = new SignUpWithGoogleCaseImpl(firebaseAuth)
+type Props = { sessionStore: SessionStorePort }
 
-    return (
-      <LoginPage
-        login={login}
-        loginWithGoogle={loginWithGoogle}
-        signUpWithGoogle={signUpWithGoogle}
-      />
+export default class LoginFactory
+  extends React.Component<Props>
+  implements Factory
+{
+  render() {
+    const firebaseAuth = new FirebaseAuthAdapter()
+    const login = new LoginCaseImpl(firebaseAuth, this.props.sessionStore)
+    const signUpWithGoogle = new SignUpWithGoogleCaseImpl(
+      firebaseAuth,
+      this.props.sessionStore
     )
+
+    return <LoginPage login={login} signUpWithGoogle={signUpWithGoogle} />
   }
 }

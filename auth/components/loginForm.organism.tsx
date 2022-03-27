@@ -1,5 +1,4 @@
 import { LoginCase } from 'auth/useCases/login.case'
-import { LoginWithGoogleCase } from 'auth/useCases/loginWithGoogle.case'
 import { SignUpWithGoogleCase } from 'auth/useCases/signUpWithGoogle.case'
 
 import ButtonAtom from 'shared/components/button.atom'
@@ -11,11 +10,13 @@ import styled from 'styled-components/native'
 
 type Props = {
   login: LoginCase
-  loginWithGoogle: LoginWithGoogleCase
   signUpWithGoogle: SignUpWithGoogleCase
 }
 
-const LoginFormOrganism: React.FC<Props> = (props: Props) => {
+const LoginFormOrganism: React.FC<Props> = ({
+  login,
+  signUpWithGoogle,
+}: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isDisabled, setIsDisabled] = useState(false)
@@ -23,17 +24,17 @@ const LoginFormOrganism: React.FC<Props> = (props: Props) => {
   const onLoginPress = async () => {
     setIsDisabled(true)
     try {
-      console.log(await props.login.execute({ email, password }))
+      console.log(await login.execute({ email, password }))
     } catch (error) {
       console.error(error)
     }
     setIsDisabled(false)
   }
 
-  const onSignUpPress = () => props.signUpWithGoogle.execute()
+  const onSignUpPress = () => signUpWithGoogle.execute()
 
   useEffect(() => {
-    setIsDisabled(!props.login.isValid({ email, password }))
+    setIsDisabled(!login.isValid({ email, password }))
   }, [email, password])
 
   return (
@@ -61,7 +62,7 @@ const LoginFormOrganism: React.FC<Props> = (props: Props) => {
       <ButtonAtom
         flat
         style={{ marginTop: 32 }}
-        title="Sign Up"
+        title="Login With Google"
         onPress={onSignUpPress}
       />
     </StyledView>
