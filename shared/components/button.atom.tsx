@@ -1,3 +1,5 @@
+import theme from 'shared/styles/settings/theme.style'
+
 import {
   View,
   ButtonProps,
@@ -47,7 +49,7 @@ const StyledView = styled(View)<CustomProps>`
   padding: 16px 32px;
   background-color: ${props => {
     if (props.flat) return 'transparent'
-    return props.color || '#FFF'
+    return props.color || theme.colors.secondary
   }};
   align-items: center;
   border-radius: 50px;
@@ -56,7 +58,7 @@ const StyledView = styled(View)<CustomProps>`
 
 const StyledText = styled(Text)<CustomProps>`
   color: ${props => {
-    if (props.flat) return '#FFF'
+    if (props.flat) return theme.colors.secondary
     return props.textColor || 'black'
   }};
   font-size: 14px;

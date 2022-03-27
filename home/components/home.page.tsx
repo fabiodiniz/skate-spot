@@ -2,6 +2,8 @@ import { LogoutCase } from 'auth/useCases/logout.case'
 
 import ButtonAtom from 'shared/components/button.atom'
 
+import theme from 'shared/styles/settings/theme.style'
+
 import { View, Text } from 'react-native'
 import styled from 'styled-components/native'
 
@@ -22,11 +24,7 @@ const StyledPage = styled(View)`
   align-items: center;
   justify-content: center;
   height: 100%;
-  background: #333;
-`
-
-const StyledText = styled(Text)`
-  color: white;
+  background: ${theme.colors.primary};
 `
 
 export default HomePage

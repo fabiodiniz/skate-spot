@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-imports */
 import ReloadSessionCaseImpl from 'auth/useCases/classes/reloadSession.caseImpl'
 
 import FirebaseAuthAdapter from 'auth/adapters/firebaseAuth.adapter'
@@ -20,8 +19,9 @@ import AppLoading from 'expo-app-loading'
 import { initializeApp } from 'firebase/app'
 import { useState } from 'react'
 import RootStore from 'rootStore'
+import Router from 'router'
 
-import Router from './router'
+import 'firebase/auth'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCumgnkz5DLRL60oSgIX3kiNaUH9ggcnTA',
