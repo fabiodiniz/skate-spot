@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "SkateSpot - Onde os picos DIY ganham força!",
-    "slug": "skate-spot",
+    "slug": "SkateSpot",
+    "owner": "fabiozinid",
     "version": "1.0.0",
     "scheme": "skate-stop",
     "orientation": "portrait",
@@ -17,7 +18,8 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.fabiodiniz.skatespot"
     },
     "android": {
       "adaptiveIcon": {
