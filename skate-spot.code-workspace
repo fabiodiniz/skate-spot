@@ -10,7 +10,7 @@
       "**/node_modules": true,
       "**/yarn-error.log": true,
       "**/junit.xml": true,
-      "**/report.json": true,
+      "**/report.json": true
     },
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnType": true,
@@ -24,8 +24,23 @@
       "source.fixAll": true
     },
     "terminal.integrated.cwd": "${workspaceFolder}",
-    "cSpell.words": ["nestjs","esbenp","Roadmap"],
-    "cSpell.language": "en,pt-BR,es",
+    "cSpell.words": [
+      "appspot",
+      "Cumgnkz",
+      "Roadmap",
+      "DLRL",
+      "esbenp",
+      "firebaseapp",
+      "firestore",
+      "ggcn",
+      "nent",
+      "nestjs",
+      "NZEFHV",
+      "roboto",
+      "skatespots",
+      "unimodules"
+    ],
+    "cSpell.language": "en,pt-BR,es"
   },
   "folders": [
     {
