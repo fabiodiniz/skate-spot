@@ -18,16 +18,22 @@ type Props = {
 const LoginFormOrganism: React.FC<Props> = (props: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isValid, setIsValid] = useState(false)
+  const [isDisabled, setIsDisabled] = useState(false)
 
-  const onLoginPress = () => {
-    props.login.execute({ email, password })
+  const onLoginPress = async () => {
+    setIsDisabled(true)
+    try {
+      console.log(await props.login.execute({ email, password }))
+    } catch (error) {
+      console.error(error)
+    }
+    setIsDisabled(false)
   }
 
   const onSignUpPress = () => props.signUpWithGoogle.execute()
 
   useEffect(() => {
-    setIsValid(props.login.isValid({ email, password }))
+    setIsDisabled(!props.login.isValid({ email, password }))
   }, [email, password])
 
   return (
@@ -49,7 +55,7 @@ const LoginFormOrganism: React.FC<Props> = (props: Props) => {
       <ButtonAtom
         style={{ marginTop: 72 }}
         title="Login"
-        disabled={!isValid}
+        disabled={isDisabled}
         onPress={onLoginPress}
       />
       <ButtonAtom
