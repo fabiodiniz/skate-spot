@@ -1,10 +1,18 @@
+import { LogoutCase } from 'auth/useCases/logout.case'
+
+import ButtonAtom from 'shared/components/button.atom'
+
 import { View, Text } from 'react-native'
 import styled from 'styled-components/native'
 
-const HomePage: React.FC = () => {
+type Props = {
+  logout: LogoutCase
+}
+
+const HomePage: React.FC<Props> = ({ logout }: Props) => {
   return (
     <StyledPage testID="HomePage">
-      <StyledText>Página inicial</StyledText>
+      <ButtonAtom onPress={() => logout.execute()} title="Logout"></ButtonAtom>
     </StyledPage>
   )
 }

@@ -36,11 +36,9 @@ const Router: React.FC<Props> = observer(({ rootStore }: Props) => {
     >
       <Stack.Navigator initialRouteName="Login">
         {rootStore.sessionStore.get() ? (
-          <Stack.Screen
-            name="Home"
-            component={HomeFactory}
-            options={{ headerShown: false }}
-          />
+          <Stack.Screen name="Home" options={{ headerShown: false }}>
+            {() => <HomeFactory sessionStore={rootStore.sessionStore} />}
+          </Stack.Screen>
         ) : (
           <Stack.Screen name="Login" options={{ headerShown: false }}>
             {() => <LoginFactory sessionStore={rootStore.sessionStore} />}
