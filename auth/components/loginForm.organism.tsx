@@ -22,9 +22,10 @@ const LoginFormOrganism: React.FC<Props> = ({
   const [isDisabled, setIsDisabled] = useState(false)
 
   const onLoginPress = async () => {
+    if (isDisabled) return
     setIsDisabled(true)
     try {
-      console.log(await login.execute({ email, password }))
+      await login.execute({ email, password })
     } catch (error) {
       console.error(error)
     }

@@ -8,6 +8,8 @@ import BackgroundMolecule from 'auth/components/background.molecule'
 import LogoAtom from 'shared/components/logo.atom'
 import SpacerAtom from 'shared/components/spacer.atom'
 
+import theme from 'shared/styles/settings/theme.style'
+
 import { ScrollView, View } from 'react-native'
 import styled from 'styled-components/native'
 
@@ -40,7 +42,7 @@ const LoginPage: React.FC<Props> = ({ login, signUpWithGoogle }: Props) => {
 }
 
 const StyledPage = styled(View)`
-  background-color: #212121;
+  background-color: ${theme.colors.primary};
   max-width: 100%;
   height: 100%;
   flex-direction: column;
