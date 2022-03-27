@@ -18,6 +18,7 @@ import {
 import { registerRootComponent } from 'expo'
 import AppLoading from 'expo-app-loading'
 import { initializeApp } from 'firebase/app'
+import { useState } from 'react'
 import RootStore from 'rootStore'
 
 import Router from './router'
@@ -37,13 +38,6 @@ initializeApp(firebaseConfig)
 
 const rootStore = new RootStore()
 
-const reloadSession = new ReloadSessionCaseImpl(
-  new FirebaseAuthAdapter(),
-  rootStore.sessionStore
-)
-
-reloadSession.execute()
-
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
     RobotoSlab_100Thin,
@@ -57,7 +51,16 @@ const App: React.FC = () => {
     RobotoSlab_900Black,
   })
 
-  if (!fontsLoaded) {
+  const [sessionLoaded, setSessionLoaded] = useState(false)
+
+  const reloadSession = new ReloadSessionCaseImpl(
+    new FirebaseAuthAdapter(),
+    rootStore.sessionStore
+  )
+
+  reloadSession.execute().then(() => setSessionLoaded(true))
+
+  if (!fontsLoaded || !sessionLoaded) {
     return <AppLoading />
   }
 
