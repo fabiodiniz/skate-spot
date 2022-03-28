@@ -1,5 +1,5 @@
 import LoginCaseImpl from 'auth/useCases/classes/login.caseImpl'
-import SignUpWithGoogleCaseImpl from 'auth/useCases/classes/signUpWithGoogle.caseImpl'
+import SignInWithGoogleCaseImpl from 'auth/useCases/classes/signInWithGoogle.caseImpl'
 
 import { SessionStorePort } from 'auth/ports/sessionStore.port'
 
@@ -18,11 +18,11 @@ export default class LoginFactory
   render() {
     const firebaseAuth = new FirebaseAuthAdapter()
     const login = new LoginCaseImpl(firebaseAuth, this.props.sessionStore)
-    const signUpWithGoogle = new SignUpWithGoogleCaseImpl(
+    const signInWithGoogle = new SignInWithGoogleCaseImpl(
       firebaseAuth,
       this.props.sessionStore
     )
 
-    return <LoginPage login={login} signUpWithGoogle={signUpWithGoogle} />
+    return <LoginPage login={login} signInWithGoogle={signInWithGoogle} />
   }
 }

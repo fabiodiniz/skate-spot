@@ -22,6 +22,7 @@
       "bundleIdentifier": "br.com.fabiodiniz.skatespot"
     },
     "android": {
+      "package": "br.com.fabiodiniz.skatespot",
       "adaptiveIcon": {
         "foregroundImage": "./shared/statics/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
