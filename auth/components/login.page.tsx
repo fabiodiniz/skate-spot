@@ -1,5 +1,5 @@
 import { LoginCase } from 'auth/useCases/login.case'
-import { SignUpWithGoogleCase } from 'auth/useCases/signUpWithGoogle.case'
+import { SignInWithGoogleCase } from 'auth/useCases/signInWithGoogle.case'
 
 import LoginFormOrganism from 'auth/components/loginForm.organism'
 
@@ -15,22 +15,22 @@ import styled from 'styled-components/native'
 
 type Props = {
   login: LoginCase
-  signUpWithGoogle: SignUpWithGoogleCase
+  signInWithGoogle: SignInWithGoogleCase
 }
 
-const LoginPage: React.FC<Props> = ({ login, signUpWithGoogle }: Props) => {
+const LoginPage: React.FC<Props> = ({ login, signInWithGoogle }: Props) => {
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
       keyboardShouldPersistTaps="handled"
-      scrollEnabled={false}
+      scrollToOverflowEnabled={false}
     >
       <StyledPage testID="LoginPage">
         <SpacerAtom />
         <StyledLogoAtom />
         <StyledLoginFormOrganism
           login={login}
-          signUpWithGoogle={signUpWithGoogle}
+          signInWithGoogle={signInWithGoogle}
         />
         <SpacerAtom />
         <StyledBackground>

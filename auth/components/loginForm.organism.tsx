@@ -1,5 +1,5 @@
 import { LoginCase } from 'auth/useCases/login.case'
-import { SignUpWithGoogleCase } from 'auth/useCases/signUpWithGoogle.case'
+import { SignInWithGoogleCase } from 'auth/useCases/signInWithGoogle.case'
 
 import ButtonAtom from 'shared/components/button.atom'
 import InputAtom from 'shared/components/input.atom'
@@ -10,12 +10,12 @@ import styled from 'styled-components/native'
 
 type Props = {
   login: LoginCase
-  signUpWithGoogle: SignUpWithGoogleCase
+  signInWithGoogle: SignInWithGoogleCase
 }
 
 const LoginFormOrganism: React.FC<Props> = ({
   login,
-  signUpWithGoogle,
+  signInWithGoogle,
 }: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -32,7 +32,7 @@ const LoginFormOrganism: React.FC<Props> = ({
     setIsDisabled(false)
   }
 
-  const onSignUpPress = () => signUpWithGoogle.execute()
+  const onSignInGooglePress = () => signInWithGoogle.execute()
 
   useEffect(() => {
     setIsDisabled(!login.isValid({ email, password }))
@@ -42,6 +42,7 @@ const LoginFormOrganism: React.FC<Props> = ({
     <StyledView testID="LoginFormOrganism">
       <StyledInputAtom
         keyboardType="email-address"
+        autoCapitalize="none"
         placeholder="Email"
         onSubmitEditing={onLoginPress}
         returnKeyType="go"
@@ -63,8 +64,8 @@ const LoginFormOrganism: React.FC<Props> = ({
       <ButtonAtom
         flat
         style={{ marginTop: 32 }}
-        title="Login With Google"
-        onPress={onSignUpPress}
+        title="Sign In With Google"
+        onPress={onSignInGooglePress}
       />
     </StyledView>
   )

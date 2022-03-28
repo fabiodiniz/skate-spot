@@ -38,7 +38,7 @@ export default class FirebaseAuthAdapter implements FirebaseAuthPort {
     return result.user
   }
 
-  async signUpWithGoogle() {
+  async signInWithGoogle() {
     const provider = new GoogleAuthProvider()
     const result = await signInWithPopup(this.getAuth(), provider)
     return result.user
