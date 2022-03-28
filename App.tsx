@@ -38,6 +38,11 @@ initializeApp(firebaseConfig)
 
 const rootStore = new RootStore()
 
+const reloadSession = new ReloadSessionCaseImpl(
+  new FirebaseAuthAdapter(),
+  rootStore.sessionStore
+)
+
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({
     RobotoSlab_100Thin,
@@ -53,18 +58,13 @@ const App: React.FC = () => {
 
   const [sessionLoaded, setSessionLoaded] = useState(false)
 
-  const reloadSession = new ReloadSessionCaseImpl(
-    new FirebaseAuthAdapter(),
-    rootStore.sessionStore
-  )
-
   reloadSession.execute().then(() => setSessionLoaded(true))
 
-  if (!fontsLoaded || !sessionLoaded) {
+  if (fontsLoaded && sessionLoaded) {
+    return <Router rootStore={rootStore} />
+  } else {
     return <AppLoading />
   }
-
-  return <Router rootStore={rootStore} />
 }
 
 export default registerRootComponent(App)

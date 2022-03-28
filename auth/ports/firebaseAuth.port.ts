@@ -6,6 +6,6 @@ export interface FirebaseAuthPort {
   getAuth(): Auth
   getUser(): Promise<User | null>
   login(email: string, password: string): Promise<User>
-  signUpWithGoogle(): Promise<User>
+  signInWithGoogle(): Promise<User>
   logout(): Promise<boolean>
 }

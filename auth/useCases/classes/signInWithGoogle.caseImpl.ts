@@ -1,19 +1,19 @@
 import {
-  SignUpWithGoogleCase,
-  SignUpWithGoogleCaseOutput,
-} from 'auth/useCases/signUpWithGoogle.case'
+  SignInWithGoogleCase,
+  SignInWithGoogleCaseOutput,
+} from 'auth/useCases/signInWithGoogle.case'
 
 import { FirebaseAuthPort } from 'auth/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/ports/sessionStore.port'
 
-export default class SignUpWithGoogleCaseImpl implements SignUpWithGoogleCase {
+export default class SignInWithGoogleCaseImpl implements SignInWithGoogleCase {
   constructor(
     private readonly firebaseAuth: FirebaseAuthPort,
     private readonly sessionStore: SessionStorePort
   ) {}
 
-  async execute(): SignUpWithGoogleCaseOutput {
-    const user = await this.firebaseAuth.signUpWithGoogle()
+  async execute(): SignInWithGoogleCaseOutput {
+    const user = await this.firebaseAuth.signInWithGoogle()
     this.sessionStore.set(user)
     return user
   }
