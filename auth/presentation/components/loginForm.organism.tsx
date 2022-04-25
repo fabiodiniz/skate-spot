@@ -27,7 +27,7 @@ const LoginFormOrganism: React.FC<Props> = ({
     try {
       await login.execute({ email, password })
     } catch (error) {
-      console.error(error)
+      window.alert(error)
     }
     setIsDisabled(false)
   }
