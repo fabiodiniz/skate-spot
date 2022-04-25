@@ -1,5 +1,5 @@
-import LoginFactory from 'auth/factories/login.factory'
-import HomeFactory from 'home/factories/home.factory'
+import LoginFactory from 'auth/application/login.factory'
+import HomeFactory from 'home/application/home.factory'
 
 import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'

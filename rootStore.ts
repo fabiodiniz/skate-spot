@@ -1,6 +1,6 @@
-import { SessionStorePort } from 'auth/ports/sessionStore.port'
+import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import SessionStoreAdapter from 'auth/adapters/sessionStore.adapter'
+import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 
 export default class RootStore {
   sessionStore: SessionStorePort

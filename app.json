@@ -6,10 +6,10 @@
     "version": "1.0.0",
     "scheme": "skate-stop",
     "orientation": "portrait",
-    "icon": "./shared/statics/icon.png",
+    "icon": "./shared/presentation/statics/icon.png",
     "entryPoint": "./App.tsx",
     "splash": {
-      "image": "./shared/statics/splash.png",
+      "image": "./shared/presentation/statics/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -24,12 +24,12 @@
     "android": {
       "package": "br.com.fabiodiniz.skatespot",
       "adaptiveIcon": {
-        "foregroundImage": "./shared/statics/adaptive-icon.png",
+        "foregroundImage": "./shared/presentation/statics/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./shared/statics/favicon.png"
+      "favicon": "./shared/presentation/statics/favicon.png"
     }
   }
 }

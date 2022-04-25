@@ -1,6 +1,6 @@
-import ReloadSessionCaseImpl from 'auth/useCases/classes/reloadSession.caseImpl'
+import ReloadSessionCaseImpl from 'auth/data/useCases/classes/reloadSession.caseImpl'
 
-import FirebaseAuthAdapter from 'auth/adapters/firebaseAuth.adapter'
+import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
 
 import { useFonts } from '@expo-google-fonts/inter'
 import {
