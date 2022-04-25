@@ -27,7 +27,7 @@
       "source.fixAll": true
     },
     "terminal.integrated.cwd": "${fileDirname}",
-    "cSpell.words": ["nestjs"],
+    "cSpell.words": ["nestjs", "Roadmap"],
     "cSpell.language": "en,pt-BR,es"
   },
   "folders": [

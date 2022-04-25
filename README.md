@@ -15,3 +15,7 @@ Learn how the code is organized.
 ### [Design System](https://github.com/fabiodiniz/skate-spot/wiki/Design-System)
 
 Explore the design specification.
+<br />
+<br />
+
+##### &copy; Copyright - Fábio Diniz - 2022
