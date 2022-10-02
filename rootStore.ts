@@ -1,11 +1,10 @@
-import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
-
 import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 
-export default class RootStore {
-  sessionStore: SessionStorePort
+import { Service, Inject } from 'typedi'
 
-  constructor() {
-    this.sessionStore = new SessionStoreAdapter()
-  }
+@Service('rootStore')
+export default class RootStore {
+  // @Inject('sessionStore.adapter')
+  // sessionStore!: SessionStoreAdapter
+  constructor(public sessionStore: SessionStoreAdapter) {}
 }

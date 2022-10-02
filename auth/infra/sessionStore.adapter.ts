@@ -3,7 +3,9 @@ import { User } from 'auth/domain/entities/users'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import { makeAutoObservable } from 'mobx'
+import { Service } from 'typedi'
 
+@Service('sessionStore.adapter')
 export default class SessionStoreAdapter implements SessionStorePort {
   user: User | null = null
 

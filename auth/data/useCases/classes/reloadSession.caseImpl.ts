@@ -1,12 +1,21 @@
 import { ReloadSessionCase } from 'auth/data/useCases/reloadSession.case'
 
-import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
-import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
+import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
+import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 
+import { Service, Inject } from 'typedi'
+
+@Service('reloadSession.caseImpl')
 export default class ReloadSessionCaseImpl implements ReloadSessionCase {
+  // @Inject('firebaseAuth.adapter')
+  // firebaseAuth!: FirebaseAuthAdapter
+
+  // @Inject('sessionStore.adapter')
+  // sessionStore!: SessionStoreAdapter
+
   constructor(
-    private readonly firebaseAuth: FirebaseAuthPort,
-    private readonly sessionStore: SessionStorePort
+    private sessionStore: SessionStoreAdapter,
+    private firebaseAuth: FirebaseAuthAdapter
   ) {}
 
   async execute() {

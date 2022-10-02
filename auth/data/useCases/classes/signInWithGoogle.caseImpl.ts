@@ -3,13 +3,21 @@ import {
   SignInWithGoogleCaseOutput,
 } from 'auth/data/useCases/signInWithGoogle.case'
 
-import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
-import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
+import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
+import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
+
+import { Inject } from 'typedi'
 
 export default class SignInWithGoogleCaseImpl implements SignInWithGoogleCase {
+  // @Inject('firebaseAuth.adapter')
+  // firebaseAuth!: FirebaseAuthAdapter
+
+  // @Inject('sessionStore.adapter')
+  // sessionStore!: SessionStoreAdapter
+
   constructor(
-    private readonly firebaseAuth: FirebaseAuthPort,
-    private readonly sessionStore: SessionStorePort
+    private sessionStore: SessionStoreAdapter,
+    private firebaseAuth: FirebaseAuthAdapter
   ) {}
 
   async execute(): SignInWithGoogleCaseOutput {

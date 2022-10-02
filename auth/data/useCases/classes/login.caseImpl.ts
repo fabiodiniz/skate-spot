@@ -7,13 +7,22 @@ import {
   LoginCaseOutput,
 } from 'auth/data/useCases/login.case'
 
-import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
-import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
+import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
+import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 
+import { Inject, Service } from 'typedi'
+
+@Service('login.caseImpl')
 export default class LoginCaseImpl implements LoginCase {
+  // @Inject('firebaseAuth.adapter')
+  // firebaseAuth!: FirebaseAuthAdapter
+
+  // @Inject('sessionStore.adapter')
+  // sessionStore!: SessionStoreAdapter
+
   constructor(
-    private readonly firebaseAuth: FirebaseAuthPort,
-    private readonly sessionStore: SessionStorePort
+    private sessionStore: SessionStoreAdapter,
+    private firebaseAuth: FirebaseAuthAdapter
   ) {}
 
   isValid(params: LoginCaseInput): boolean {

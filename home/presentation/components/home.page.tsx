@@ -4,7 +4,7 @@ import ButtonAtom from 'shared/presentation/components/button.atom'
 
 import theme from 'shared/presentation/styles/settings/theme.style'
 
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import styled from 'styled-components/native'
 
 type Props = {

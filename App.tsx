@@ -1,6 +1,11 @@
+import 'reflect-metadata'
+import 'firebase/auth'
+
+import LoginCaseImpl from 'auth/data/useCases/classes/login.caseImpl'
 import ReloadSessionCaseImpl from 'auth/data/useCases/classes/reloadSession.caseImpl'
 
 import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
+import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 
 import { useFonts } from '@expo-google-fonts/inter'
 import {
@@ -20,8 +25,7 @@ import { initializeApp } from 'firebase/app'
 import { useState } from 'react'
 import RootStore from 'rootStore'
 import Router from 'router'
-
-import 'firebase/auth'
+import Container from 'typedi'
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCumgnkz5DLRL60oSgIX3kiNaUH9ggcnTA',
@@ -36,12 +40,27 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-const rootStore = new RootStore()
+// Container.set('sessionStore.adapter', new SessionStoreAdapter())
+// Container.set('rootStore', new RootStore(Container.get('sessionStore.adapter')))
+// Container.set('firebaseAuth.adapter', new FirebaseAuthAdapter())
+// Container.set(
+//   'login.caseImpl',
+//   new LoginCaseImpl(
+//     Container.get('sessionStore.adapter'),
+//     Container.get('firebaseAuth.adapter')
+//   )
+// )
+// Container.set(
+//   'reloadSession.caseImpl',
+//   new ReloadSessionCaseImpl(
+//     Container.get('sessionStore.adapter'),
+//     Container.get('firebaseAuth.adapter')
+//   )
+// )
 
-const reloadSession = new ReloadSessionCaseImpl(
-  new FirebaseAuthAdapter(),
-  rootStore.sessionStore
-)
+const rootStore = Container.get(RootStore)
+
+const reloadSession = Container.get(ReloadSessionCaseImpl)
 
 const App: React.FC = () => {
   const [fontsLoaded] = useFonts({

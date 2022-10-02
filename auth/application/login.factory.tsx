@@ -5,9 +5,8 @@ import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import LoginPage from 'auth/presentation/components/login.page'
 
-import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
-
 import React from 'react'
+import Container from 'typedi'
 
 type Props = { sessionStore: SessionStorePort }
 
@@ -16,12 +15,8 @@ export default class LoginFactory
   implements Factory
 {
   render() {
-    const firebaseAuth = new FirebaseAuthAdapter()
-    const login = new LoginCaseImpl(firebaseAuth, this.props.sessionStore)
-    const signInWithGoogle = new SignInWithGoogleCaseImpl(
-      firebaseAuth,
-      this.props.sessionStore
-    )
+    const login = Container.get(LoginCaseImpl)
+    const signInWithGoogle = Container.get(SignInWithGoogleCaseImpl)
 
     return <LoginPage login={login} signInWithGoogle={signInWithGoogle} />
   }

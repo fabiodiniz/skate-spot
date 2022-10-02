@@ -11,7 +11,9 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth'
+import { Service } from 'typedi'
 
+@Service('firebaseAuth.adapter')
 export default class FirebaseAuthAdapter implements FirebaseAuthPort {
   private auth
 
