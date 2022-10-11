@@ -1,6 +1,6 @@
-import ReloadSessionCaseImpl from 'auth/data/useCases/classes/reloadSession.caseImpl'
+import 'reflect-metadata'
 
-import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
+import { ReloadSessionCase } from 'auth/data/useCases/reloadSession.case'
 
 import { useFonts } from '@expo-google-fonts/inter'
 import {
@@ -17,9 +17,11 @@ import {
 import { registerRootComponent } from 'expo'
 import AppLoading from 'expo-app-loading'
 import { initializeApp } from 'firebase/app'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import RootStore from 'rootStore'
 import Router from 'router'
+import 'shared/application/dependencyInjector'
+import { container } from 'tsyringe'
 
 import 'firebase/auth'
 
@@ -36,11 +38,10 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-const rootStore = new RootStore()
+const rootStore = container.resolve<RootStore>('rootStore')
 
-const reloadSession = new ReloadSessionCaseImpl(
-  new FirebaseAuthAdapter(),
-  rootStore.sessionStore
+const reloadSession = container.resolve<ReloadSessionCase>(
+  'reloadSession.caseImpl'
 )
 
 const App: React.FC = () => {
@@ -58,7 +59,9 @@ const App: React.FC = () => {
 
   const [sessionLoaded, setSessionLoaded] = useState(false)
 
-  reloadSession.execute().then(() => setSessionLoaded(true))
+  useEffect(() => {
+    reloadSession.execute().then(() => setSessionLoaded(true))
+  }, [])
 
   if (fontsLoaded && sessionLoaded) {
     return <Router rootStore={rootStore} />

@@ -1,11 +1,12 @@
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
+import DependencyEnum from 'shared/application/dependencyEnum'
+import { inject, singleton } from 'tsyringe'
 
+@singleton()
 export default class RootStore {
-  sessionStore: SessionStorePort
-
-  constructor() {
-    this.sessionStore = new SessionStoreAdapter()
-  }
+  constructor(
+    @inject(DependencyEnum.SessionStoreAdapter)
+    public readonly sessionStore: SessionStorePort
+  ) {}
 }

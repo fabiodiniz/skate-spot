@@ -8,6 +8,8 @@
     "skipLibCheck": true,
     "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "types": ["./types.d.ts"]
     }

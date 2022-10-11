@@ -3,7 +3,9 @@ import { User } from 'auth/domain/entities/users'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import { makeAutoObservable } from 'mobx'
+import { singleton } from 'tsyringe'
 
+@singleton()
 export default class SessionStoreAdapter implements SessionStorePort {
   user: User | null = null
 
