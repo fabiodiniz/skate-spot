@@ -6,7 +6,7 @@ import { inject, singleton } from 'tsyringe'
 @singleton()
 export default class RootStore {
   constructor(
-    @inject(DependencyEnum.SessionStoreAdapter)
+    @inject(DependencyEnum.SESSION_STORE_ADAPTER)
     public readonly sessionStore: SessionStorePort
   ) {}
 }

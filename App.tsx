@@ -38,10 +38,10 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-const rootStore = container.resolve<RootStore>(DependencyEnum.RootStore)
+const rootStore = container.resolve<RootStore>(DependencyEnum.ROOT_STORE)
 
 const reloadSession = container.resolve<ReloadSessionCase>(
-  DependencyEnum.ReloadSessionCaseImpl
+  DependencyEnum.RELOAD_SESSION_CASE
 )
 
 const App: React.FC = () => {

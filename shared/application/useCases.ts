@@ -8,27 +8,27 @@ import { Lifecycle } from 'tsyringe'
 
 const UseCases = [
   {
-    token: DependencyEnum.ReloadSessionCaseImpl,
+    token: DependencyEnum.RELOAD_SESSION_CASE,
     useClass: ReloadSessionCaseImpl,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.ReloadSessionCaseImpl,
+    token: DependencyEnum.RELOAD_SESSION_CASE,
     useClass: ReloadSessionCaseImpl,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.LoginCaseImpl,
+    token: DependencyEnum.LOGIN_CASE,
     useClass: LoginCaseImpl,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.SignInWithGoogleCaseImpl,
+    token: DependencyEnum.SIGN_IN_WITH_GOOGLE_CASE,
     useClass: SignInWithGoogleCaseImpl,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.LogoutCaseImpl,
+    token: DependencyEnum.LOGOUT_CASE,
     useClass: LogoutCaseImpl,
     options: { lifecycle: Lifecycle.Singleton },
   },

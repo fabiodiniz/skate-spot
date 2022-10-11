@@ -9,9 +9,9 @@ import { inject, singleton } from 'tsyringe'
 @singleton()
 export default class ReloadSessionCaseImpl implements ReloadSessionCase {
   constructor(
-    @inject(DependencyEnum.FirebaseAuthAdapter)
+    @inject(DependencyEnum.FIREBASE_AUTH_ADAPTER)
     private readonly firebaseAuth: FirebaseAuthPort,
-    @inject(DependencyEnum.SessionStoreAdapter)
+    @inject(DependencyEnum.SESSION_STORE_ADAPTER)
     private readonly sessionStore: SessionStorePort
   ) {}
 

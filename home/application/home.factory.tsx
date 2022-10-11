@@ -15,9 +15,7 @@ export default class HomeFactory
   implements Factory
 {
   render() {
-    const logout = container.resolve<LogoutCaseImpl>(
-      DependencyEnum.LogoutCaseImpl
-    )
+    const logout = container.resolve<LogoutCaseImpl>(DependencyEnum.LOGOUT_CASE)
 
     return <HomePage logout={logout} />
   }

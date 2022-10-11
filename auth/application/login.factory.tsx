@@ -16,9 +16,9 @@ export default class LoginFactory
   implements Factory
 {
   render() {
-    const login = container.resolve<LoginCase>(DependencyEnum.LoginCaseImpl)
+    const login = container.resolve<LoginCase>(DependencyEnum.LOGIN_CASE)
     const signInWithGoogle = container.resolve<SignInWithGoogleCase>(
-      DependencyEnum.SignInWithGoogleCaseImpl
+      DependencyEnum.SIGN_IN_WITH_GOOGLE_CASE
     )
 
     return <LoginPage login={login} signInWithGoogle={signInWithGoogle} />
