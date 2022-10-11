@@ -20,9 +20,9 @@ import { initializeApp } from 'firebase/app'
 import { useState, useEffect } from 'react'
 import RootStore from 'rootStore'
 import Router from 'router'
-import 'shared/application/dependencyInjector'
+import DependencyEnum from 'shared/application/dependencyEnum'
 import { container } from 'tsyringe'
-
+import 'shared/application/dependencyInjector'
 import 'firebase/auth'
 
 const firebaseConfig = {
@@ -38,10 +38,10 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig)
 
-const rootStore = container.resolve<RootStore>('rootStore')
+const rootStore = container.resolve<RootStore>(DependencyEnum.RootStore)
 
 const reloadSession = container.resolve<ReloadSessionCase>(
-  'reloadSession.caseImpl'
+  DependencyEnum.ReloadSessionCaseImpl
 )
 
 const App: React.FC = () => {
