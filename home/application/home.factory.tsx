@@ -4,9 +4,8 @@ import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import HomePage from 'home/presentation/components/home.page'
 
-import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
-
 import React from 'react'
+import { container } from 'tsyringe'
 
 type Props = { sessionStore: SessionStorePort }
 
@@ -15,10 +14,7 @@ export default class HomeFactory
   implements Factory
 {
   render() {
-    const logout = new LogoutCaseImpl(
-      new FirebaseAuthAdapter(),
-      this.props.sessionStore
-    )
+    const logout = container.resolve<LogoutCaseImpl>('logout.caseImpl')
 
     return <HomePage logout={logout} />
   }

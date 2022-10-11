@@ -1,4 +1,4 @@
-export type ReloadSessionCaseOutput = void
+export type ReloadSessionCaseOutput = Promise<void>
 
 export interface ReloadSessionCase extends UseCase {
   execute(): ReloadSessionCaseOutput

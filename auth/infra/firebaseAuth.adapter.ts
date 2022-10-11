@@ -11,7 +11,9 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth'
+import { singleton } from 'tsyringe'
 
+@singleton()
 export default class FirebaseAuthAdapter implements FirebaseAuthPort {
   private auth
 
