@@ -16,26 +16,17 @@ import {
 } from '@expo-google-fonts/roboto-slab'
 import { registerRootComponent } from 'expo'
 import AppLoading from 'expo-app-loading'
+import FirebaseConfig from 'firebase.json'
 import { initializeApp } from 'firebase/app'
 import { useState, useEffect } from 'react'
 import Router from 'router'
 import DependencyEnum from 'shared/application/dependencyEnum'
 import { container } from 'tsyringe'
+
 import 'shared/application/dependencyInjector'
 import 'firebase/auth'
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyCumgnkz5DLRL60oSgIX3kiNaUH9ggcnTA',
-  authDomain: 'skatespots-270600.firebaseapp.com',
-  databaseURL: 'https://skatespots-270600.firebaseio.com',
-  projectId: 'skatespots-270600',
-  storageBucket: 'skatespots-270600.appspot.com',
-  messagingSenderId: '178575816099',
-  appId: '1:178575816099:web:48f0ffe5e271331acdd616',
-  measurementId: 'G-7NZEFHV0QN',
-}
-
-initializeApp(firebaseConfig)
+initializeApp(FirebaseConfig)
 
 const reloadSession = container.resolve<ReloadSessionCase>(
   DependencyEnum.RELOAD_SESSION_CASE
