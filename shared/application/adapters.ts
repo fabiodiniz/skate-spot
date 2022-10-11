@@ -7,17 +7,17 @@ import { Lifecycle } from 'tsyringe'
 
 const Adapters = [
   {
-    token: DependencyEnum.RootStore,
+    token: DependencyEnum.ROOT_STORE,
     useClass: RootStore,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.SessionStoreAdapter,
+    token: DependencyEnum.SESSION_STORE_ADAPTER,
     useClass: SessionStoreAdapter,
     options: { lifecycle: Lifecycle.Singleton },
   },
   {
-    token: DependencyEnum.FirebaseAuthAdapter,
+    token: DependencyEnum.FIREBASE_AUTH_ADAPTER,
     useClass: FirebaseAuthAdapter,
     options: { lifecycle: Lifecycle.Singleton },
   },
