@@ -18,7 +18,6 @@ import { registerRootComponent } from 'expo'
 import AppLoading from 'expo-app-loading'
 import { initializeApp } from 'firebase/app'
 import { useState, useEffect } from 'react'
-import RootStore from 'rootStore'
 import Router from 'router'
 import DependencyEnum from 'shared/application/dependencyEnum'
 import { container } from 'tsyringe'
@@ -37,8 +36,6 @@ const firebaseConfig = {
 }
 
 initializeApp(firebaseConfig)
-
-const rootStore = container.resolve<RootStore>(DependencyEnum.ROOT_STORE)
 
 const reloadSession = container.resolve<ReloadSessionCase>(
   DependencyEnum.RELOAD_SESSION_CASE
@@ -64,7 +61,7 @@ const App: React.FC = () => {
   }, [])
 
   if (fontsLoaded && sessionLoaded) {
-    return <Router rootStore={rootStore} />
+    return <Router />
   } else {
     return <AppLoading />
   }

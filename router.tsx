@@ -5,29 +5,35 @@ import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import { createURL } from 'expo-linking'
 import { observer } from 'mobx-react-lite'
+import { useCallback } from 'react'
 import { Text } from 'react-native'
 import RootStore from 'rootStore'
+import DependencyEnum from 'shared/application/dependencyEnum'
+import { container } from 'tsyringe'
 
-const formatter = (
-  _options: Record<string, unknown> | undefined,
-  route: Route<string, object | undefined> | undefined
-) => `${route?.name} - SkateSpot - Onde os picos DIY ganham força!`
+const Router: React.FC = observer(() => {
+  const formatter = useCallback(
+    (
+      _options: Record<string, unknown> | undefined,
+      route: Route<string, object | undefined> | undefined
+    ) => `${route?.name} - SkateSpot - Onde os picos DIY ganham força!`,
+    []
+  )
 
-const linking = {
-  prefixes: [createURL('/'), 'skate-spot://'],
-  config: {
-    screens: {
-      Home: '/',
-      Login: '/login',
+  const linking = {
+    prefixes: [createURL('/'), 'skate-spot://'],
+    config: {
+      screens: {
+        Home: '/',
+        Login: '/login',
+      },
     },
-  },
-}
+  }
 
-const Stack = createStackNavigator()
+  const Stack = createStackNavigator()
 
-type Props = { rootStore: RootStore }
+  const rootStore = container.resolve<RootStore>(DependencyEnum.ROOT_STORE)
 
-const Router: React.FC<Props> = observer(({ rootStore }: Props) => {
   return (
     <NavigationContainer
       linking={linking}
