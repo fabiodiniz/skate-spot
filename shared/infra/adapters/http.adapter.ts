@@ -1,11 +1,12 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
 import { HttpRequest, HttpResponse } from 'shared/domain/entities/http'
 
 import { HttpPort } from 'shared/data/ports/http.port'
 
 import axios, { AxiosError, AxiosResponse } from 'axios'
-import { singleton } from 'tsyringe'
+import { container, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class HttpAdapter<RequestBody = unknown, ResponseBody = unknown>
   implements HttpPort<RequestBody, ResponseBody>
 {
@@ -46,3 +47,11 @@ export default class HttpAdapter<RequestBody = unknown, ResponseBody = unknown>
     this.headers = headers
   }
 }
+
+container.register(
+  DependencyEnum.HTTP_ADAPTER,
+  {
+    useClass: HttpAdapter,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

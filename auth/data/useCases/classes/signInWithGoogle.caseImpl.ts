@@ -8,9 +8,9 @@ import {
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import { inject, singleton } from 'tsyringe'
+import { container, inject, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class SignInWithGoogleCaseImpl implements SignInWithGoogleCase {
   constructor(
     @inject(DependencyEnum.FIREBASE_AUTH_ADAPTER)
@@ -25,3 +25,11 @@ export default class SignInWithGoogleCaseImpl implements SignInWithGoogleCase {
     return user
   }
 }
+
+container.register(
+  DependencyEnum.SIGN_IN_WITH_GOOGLE_CASE,
+  {
+    useClass: SignInWithGoogleCaseImpl,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

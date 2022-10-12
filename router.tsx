@@ -1,5 +1,7 @@
 import DependencyEnum from 'shared/domain/entities/dependencyEnum'
 
+import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
+
 import LoginFactory from 'auth/application/login.factory'
 import HomeFactory from 'home/application/home.factory'
 
@@ -9,7 +11,6 @@ import { createURL } from 'expo-linking'
 import { observer } from 'mobx-react-lite'
 import { useCallback } from 'react'
 import { Text } from 'react-native'
-import RootStore from 'rootStore'
 import { container } from 'tsyringe'
 
 const Router: React.FC = observer(() => {
@@ -33,7 +34,9 @@ const Router: React.FC = observer(() => {
 
   const Stack = createStackNavigator()
 
-  const rootStore = container.resolve<RootStore>(DependencyEnum.ROOT_STORE)
+  const sessionStore = container.resolve<SessionStorePort>(
+    DependencyEnum.SESSION_STORE_ADAPTER
+  )
 
   return (
     <NavigationContainer
@@ -42,7 +45,7 @@ const Router: React.FC = observer(() => {
       documentTitle={{ formatter }}
     >
       <Stack.Navigator initialRouteName="Login">
-        {rootStore.sessionStore.get() ? (
+        {sessionStore.get() ? (
           <Stack.Screen name="Home" options={{ headerShown: false }}>
             {() => <HomeFactory />}
           </Stack.Screen>

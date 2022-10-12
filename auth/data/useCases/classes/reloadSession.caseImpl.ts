@@ -5,9 +5,9 @@ import { ReloadSessionCase } from 'auth/data/useCases/reloadSession.case'
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import { inject, singleton } from 'tsyringe'
+import { container, inject, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class ReloadSessionCaseImpl implements ReloadSessionCase {
   constructor(
     @inject(DependencyEnum.FIREBASE_AUTH_ADAPTER)
@@ -21,3 +21,11 @@ export default class ReloadSessionCaseImpl implements ReloadSessionCase {
     if (user) this.sessionStore.set(user)
   }
 }
+
+container.register(
+  DependencyEnum.RELOAD_SESSION_CASE,
+  {
+    useClass: ReloadSessionCaseImpl,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

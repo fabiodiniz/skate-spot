@@ -1,11 +1,12 @@
 import { User } from 'auth/domain/entities/users'
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
 
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import { makeAutoObservable } from 'mobx'
-import { singleton } from 'tsyringe'
+import { container, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class SessionStoreAdapter implements SessionStorePort {
   user: User | null = null
 
@@ -27,3 +28,11 @@ export default class SessionStoreAdapter implements SessionStorePort {
     return true
   }
 }
+
+container.register(
+  DependencyEnum.SESSION_STORE_ADAPTER,
+  {
+    useClass: SessionStoreAdapter,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

@@ -1,4 +1,5 @@
 import { User } from 'auth/domain/entities/users'
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
 
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 
@@ -11,9 +12,9 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth'
-import { singleton } from 'tsyringe'
+import { container, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class FirebaseAuthAdapter implements FirebaseAuthPort {
   private auth
 
@@ -51,3 +52,11 @@ export default class FirebaseAuthAdapter implements FirebaseAuthPort {
     return true
   }
 }
+
+container.register(
+  DependencyEnum.FIREBASE_AUTH_ADAPTER,
+  {
+    useClass: FirebaseAuthAdapter,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

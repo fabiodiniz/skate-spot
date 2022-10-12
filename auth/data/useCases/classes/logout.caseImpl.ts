@@ -5,9 +5,9 @@ import { LogoutCase, LogoutCaseOutput } from 'auth/data/useCases/logout.case'
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import { inject, singleton } from 'tsyringe'
+import { container, inject, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class LogoutCaseImpl implements LogoutCase {
   constructor(
     @inject(DependencyEnum.FIREBASE_AUTH_ADAPTER)
@@ -22,3 +22,11 @@ export default class LogoutCaseImpl implements LogoutCase {
     return true
   }
 }
+
+container.register(
+  DependencyEnum.LOGOUT_CASE,
+  {
+    useClass: LogoutCaseImpl,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)

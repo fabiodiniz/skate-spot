@@ -12,9 +12,9 @@ import {
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import { inject, singleton } from 'tsyringe'
+import { container, inject, Lifecycle, injectable } from 'tsyringe'
 
-@singleton()
+@injectable()
 export default class LoginCaseImpl implements LoginCase {
   constructor(
     @inject(DependencyEnum.FIREBASE_AUTH_ADAPTER)
@@ -33,3 +33,11 @@ export default class LoginCaseImpl implements LoginCase {
     return user
   }
 }
+
+container.register(
+  DependencyEnum.LOGIN_CASE,
+  {
+    useClass: LoginCaseImpl,
+  },
+  { lifecycle: Lifecycle.Singleton }
+)
