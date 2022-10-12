@@ -1,4 +1,4 @@
-import { Image, View } from 'react-native'
+import { Image } from 'react-native'
 import styled from 'styled-components/native'
 
 const BackgroundMolecule: React.FC = props => {
@@ -17,7 +17,7 @@ const StyledImage = styled(Image)`
   width: 100%;
 `
 
-const StyledView = styled(View)`
+const StyledView = styled.View`
   width: 100%;
   height: 100%;
   align-items: stretch;

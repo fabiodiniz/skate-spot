@@ -10,7 +10,9 @@ const InputAtom: React.FC<Props> = (props: Props) => {
 
   return (
     <View testID="InputAtom" style={props.style}>
-      <StyledText style={{ marginBottom: 6 }}>{props.placeholder}</StyledText>
+      {props.placeholder && (
+        <StyledText style={{ marginBottom: 6 }}>{props.placeholder}</StyledText>
+      )}
       <StyledTextInput {...spreadProps} />
     </View>
   )
