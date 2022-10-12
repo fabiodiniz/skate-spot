@@ -1,9 +1,10 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import { ReloadSessionCase } from 'auth/data/useCases/reloadSession.case'
 
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { inject, singleton } from 'tsyringe'
 
 @singleton()

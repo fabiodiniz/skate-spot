@@ -1,3 +1,5 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import isEmailValid from 'auth/domain/rules/isEmailValid.rule'
 import isPasswordValid from 'auth/domain/rules/isPasswordValid.rule'
 
@@ -10,7 +12,6 @@ import {
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { inject, singleton } from 'tsyringe'
 
 @singleton()

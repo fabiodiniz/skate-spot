@@ -1,3 +1,5 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import {
   SignInWithGoogleCase,
   SignInWithGoogleCaseOutput,
@@ -6,7 +8,6 @@ import {
 import { FirebaseAuthPort } from 'auth/data/ports/firebaseAuth.port'
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { inject, singleton } from 'tsyringe'
 
 @singleton()

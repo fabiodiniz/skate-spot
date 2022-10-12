@@ -1,9 +1,10 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import LoginCaseImpl from 'auth/data/useCases/classes/login.caseImpl'
 import LogoutCaseImpl from 'auth/data/useCases/classes/logout.caseImpl'
 import ReloadSessionCaseImpl from 'auth/data/useCases/classes/reloadSession.caseImpl'
 import SignInWithGoogleCaseImpl from 'auth/data/useCases/classes/signInWithGoogle.caseImpl'
 
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { Lifecycle } from 'tsyringe'
 
 const UseCases = [

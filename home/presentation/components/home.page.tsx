@@ -1,10 +1,11 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import { LogoutCase } from 'auth/data/useCases/logout.case'
 
 import ButtonAtom from 'shared/presentation/components/button.atom'
 
 import theme from 'shared/presentation/styles/settings/theme.style'
 
-import DependencyEnum from 'shared/application/dependencyEnum'
 import styled from 'styled-components/native'
 import { container } from 'tsyringe'
 

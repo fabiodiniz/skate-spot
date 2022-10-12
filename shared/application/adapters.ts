@@ -1,9 +1,10 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import FirebaseAuthAdapter from 'auth/infra/firebaseAuth.adapter'
 import SessionStoreAdapter from 'auth/infra/sessionStore.adapter'
 import HttpAdapter from 'shared/infra/adapters/http.adapter'
 
 import RootStore from 'rootStore'
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { Lifecycle } from 'tsyringe'
 
 const Adapters = [

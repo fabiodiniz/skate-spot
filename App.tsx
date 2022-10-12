@@ -1,5 +1,7 @@
 import 'reflect-metadata'
 
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import { ReloadSessionCase } from 'auth/data/useCases/reloadSession.case'
 
 import { useFonts } from '@expo-google-fonts/inter'
@@ -20,7 +22,6 @@ import FirebaseConfig from 'firebase.json'
 import { initializeApp } from 'firebase/app'
 import { useState, useEffect } from 'react'
 import Router from 'router'
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { container } from 'tsyringe'
 
 import 'shared/application/dependencyInjector'

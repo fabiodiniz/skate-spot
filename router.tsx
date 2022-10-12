@@ -1,3 +1,5 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import LoginFactory from 'auth/application/login.factory'
 import HomeFactory from 'home/application/home.factory'
 
@@ -8,7 +10,6 @@ import { observer } from 'mobx-react-lite'
 import { useCallback } from 'react'
 import { Text } from 'react-native'
 import RootStore from 'rootStore'
-import DependencyEnum from 'shared/application/dependencyEnum'
 import { container } from 'tsyringe'
 
 const Router: React.FC = observer(() => {
@@ -43,11 +44,11 @@ const Router: React.FC = observer(() => {
       <Stack.Navigator initialRouteName="Login">
         {rootStore.sessionStore.get() ? (
           <Stack.Screen name="Home" options={{ headerShown: false }}>
-            {() => <HomeFactory sessionStore={rootStore.sessionStore} />}
+            {() => <HomeFactory />}
           </Stack.Screen>
         ) : (
           <Stack.Screen name="Login" options={{ headerShown: false }}>
-            {() => <LoginFactory sessionStore={rootStore.sessionStore} />}
+            {() => <LoginFactory />}
           </Stack.Screen>
         )}
       </Stack.Navigator>

@@ -1,3 +1,5 @@
+import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+
 import { LoginCase } from 'auth/data/useCases/login.case'
 import { SignInWithGoogleCase } from 'auth/data/useCases/signInWithGoogle.case'
 
@@ -5,7 +7,6 @@ import ButtonAtom from 'shared/presentation/components/button.atom'
 import InputAtom from 'shared/presentation/components/input.atom'
 
 import { useState, useEffect } from 'react'
-import DependencyEnum from 'shared/application/dependencyEnum'
 import styled from 'styled-components/native'
 import { container } from 'tsyringe'
 
