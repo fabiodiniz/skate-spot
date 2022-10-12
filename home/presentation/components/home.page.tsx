@@ -1,4 +1,4 @@
-import LogoutCaseImpl from 'auth/data/useCases/classes/logout.caseImpl'
+import { LogoutCase } from 'auth/data/useCases/logout.case'
 
 import ButtonAtom from 'shared/presentation/components/button.atom'
 
@@ -9,7 +9,7 @@ import styled from 'styled-components/native'
 import { container } from 'tsyringe'
 
 const HomePage: React.FC = () => {
-  const logout = container.resolve<LogoutCaseImpl>(DependencyEnum.LOGOUT_CASE)
+  const logout = container.resolve<LogoutCase>(DependencyEnum.LOGOUT_CASE)
 
   return (
     <StyledPage testID="HomePage">
