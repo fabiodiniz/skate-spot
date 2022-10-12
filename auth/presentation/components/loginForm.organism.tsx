@@ -5,7 +5,6 @@ import ButtonAtom from 'shared/presentation/components/button.atom'
 import InputAtom from 'shared/presentation/components/input.atom'
 
 import { useState, useEffect } from 'react'
-import { View } from 'react-native'
 import styled from 'styled-components/native'
 
 type Props = {
@@ -71,7 +70,7 @@ const LoginFormOrganism: React.FC<Props> = ({
   )
 }
 
-const StyledView = styled(View)`
+const StyledView = styled.View`
   width: 100%;
   padding: 48px;
   align-items: center;

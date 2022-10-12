@@ -10,7 +10,7 @@ import SpacerAtom from 'shared/presentation/components/spacer.atom'
 
 import theme from 'shared/presentation/styles/settings/theme.style'
 
-import { ScrollView, View } from 'react-native'
+import { ScrollView } from 'react-native'
 import styled from 'styled-components/native'
 
 type Props = {
@@ -41,7 +41,7 @@ const LoginPage: React.FC<Props> = ({ login, signInWithGoogle }: Props) => {
   )
 }
 
-const StyledPage = styled(View)`
+const StyledPage = styled.View`
   background-color: ${theme.colors.primary};
   max-width: 100%;
   height: 100%;
@@ -62,7 +62,7 @@ const StyledLogoAtom = styled(LogoAtom)`
   margin-top: 12px;
 `
 
-const StyledBackground = styled(View)`
+const StyledBackground = styled.View`
   position: absolute;
   width: 100%;
   height: 100%;
