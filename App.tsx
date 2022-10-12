@@ -28,11 +28,11 @@ import 'firebase/auth'
 
 initializeApp(FirebaseConfig)
 
-const reloadSession = container.resolve<ReloadSessionCase>(
-  DependencyEnum.RELOAD_SESSION_CASE
-)
-
 const App: React.FC = () => {
+  const reloadSession = container.resolve<ReloadSessionCase>(
+    DependencyEnum.RELOAD_SESSION_CASE
+  )
+
   const [fontsLoaded] = useFonts({
     RobotoSlab_100Thin,
     RobotoSlab_200ExtraLight,

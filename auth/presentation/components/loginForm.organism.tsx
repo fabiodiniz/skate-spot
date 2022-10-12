@@ -5,17 +5,16 @@ import ButtonAtom from 'shared/presentation/components/button.atom'
 import InputAtom from 'shared/presentation/components/input.atom'
 
 import { useState, useEffect } from 'react'
+import DependencyEnum from 'shared/application/dependencyEnum'
 import styled from 'styled-components/native'
+import { container } from 'tsyringe'
 
-type Props = {
-  login: LoginCase
-  signInWithGoogle: SignInWithGoogleCase
-}
+const LoginFormOrganism: React.FC = () => {
+  const login = container.resolve<LoginCase>(DependencyEnum.LOGIN_CASE)
+  const signInWithGoogle = container.resolve<SignInWithGoogleCase>(
+    DependencyEnum.SIGN_IN_WITH_GOOGLE_CASE
+  )
 
-const LoginFormOrganism: React.FC<Props> = ({
-  login,
-  signInWithGoogle,
-}: Props) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isDisabled, setIsDisabled] = useState(false)

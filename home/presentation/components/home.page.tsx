@@ -1,17 +1,16 @@
-import { LogoutCase } from 'auth/data/useCases/logout.case'
+import LogoutCaseImpl from 'auth/data/useCases/classes/logout.caseImpl'
 
 import ButtonAtom from 'shared/presentation/components/button.atom'
 
 import theme from 'shared/presentation/styles/settings/theme.style'
 
-import { View, Text } from 'react-native'
+import DependencyEnum from 'shared/application/dependencyEnum'
 import styled from 'styled-components/native'
+import { container } from 'tsyringe'
 
-type Props = {
-  logout: LogoutCase
-}
+const HomePage: React.FC = () => {
+  const logout = container.resolve<LogoutCaseImpl>(DependencyEnum.LOGOUT_CASE)
 
-const HomePage: React.FC<Props> = ({ logout }: Props) => {
   return (
     <StyledPage testID="HomePage">
       <ButtonAtom onPress={() => logout.execute()} title="Logout"></ButtonAtom>
@@ -19,7 +18,7 @@ const HomePage: React.FC<Props> = ({ logout }: Props) => {
   )
 }
 
-const StyledPage = styled(View)`
+const StyledPage = styled.View`
   padding: 100px;
   align-items: center;
   justify-content: center;

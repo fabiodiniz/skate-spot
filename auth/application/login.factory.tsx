@@ -1,26 +1,9 @@
-import { LoginCase } from 'auth/data/useCases/login.case'
-import { SignInWithGoogleCase } from 'auth/data/useCases/signInWithGoogle.case'
-
-import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
-
 import LoginPage from 'auth/presentation/components/login.page'
 
 import React from 'react'
-import DependencyEnum from 'shared/application/dependencyEnum'
-import { container } from 'tsyringe'
 
-type Props = { sessionStore: SessionStorePort }
-
-export default class LoginFactory
-  extends React.Component<Props>
-  implements Factory
-{
+export default class LoginFactory extends React.Component implements Factory {
   render() {
-    const login = container.resolve<LoginCase>(DependencyEnum.LOGIN_CASE)
-    const signInWithGoogle = container.resolve<SignInWithGoogleCase>(
-      DependencyEnum.SIGN_IN_WITH_GOOGLE_CASE
-    )
-
-    return <LoginPage login={login} signInWithGoogle={signInWithGoogle} />
+    return <LoginPage />
   }
 }

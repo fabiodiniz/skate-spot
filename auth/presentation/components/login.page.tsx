@@ -1,6 +1,3 @@
-import { LoginCase } from 'auth/data/useCases/login.case'
-import { SignInWithGoogleCase } from 'auth/data/useCases/signInWithGoogle.case'
-
 import LoginFormOrganism from 'auth/presentation/components/loginForm.organism'
 
 import BackgroundMolecule from 'auth/presentation/components/background.molecule'
@@ -13,12 +10,7 @@ import theme from 'shared/presentation/styles/settings/theme.style'
 import { ScrollView } from 'react-native'
 import styled from 'styled-components/native'
 
-type Props = {
-  login: LoginCase
-  signInWithGoogle: SignInWithGoogleCase
-}
-
-const LoginPage: React.FC<Props> = ({ login, signInWithGoogle }: Props) => {
+const LoginPage: React.FC = () => {
   return (
     <ScrollView
       contentContainerStyle={{ flexGrow: 1 }}
@@ -28,10 +20,7 @@ const LoginPage: React.FC<Props> = ({ login, signInWithGoogle }: Props) => {
       <StyledPage testID="LoginPage">
         <SpacerAtom />
         <StyledLogoAtom />
-        <StyledLoginFormOrganism
-          login={login}
-          signInWithGoogle={signInWithGoogle}
-        />
+        <StyledLoginFormOrganism />
         <SpacerAtom />
         <StyledBackground>
           <BackgroundMolecule />
