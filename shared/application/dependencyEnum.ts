@@ -1,8 +1,9 @@
 const enum DependencyEnum {
   // Adapters
   ROOT_STORE = 'rootStore',
-  SESSION_STORE_ADAPTER = 'sessionStore.adapter',
+  HTTP_ADAPTER = 'httpAdapter',
   FIREBASE_AUTH_ADAPTER = 'firebaseAuth.adapter',
+  SESSION_STORE_ADAPTER = 'sessionStore.adapter',
 
   // Use Cases
   RELOAD_SESSION_CASE = 'reloadSession.caseImpl',
