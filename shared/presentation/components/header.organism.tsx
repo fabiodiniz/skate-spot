@@ -4,13 +4,21 @@ import LogoAtom from 'shared/presentation/components/logo.atom'
 import theme from 'shared/presentation/styles/settings/theme.style'
 
 import React from 'react'
+import { Image } from 'react-native'
 import styled from 'styled-components/native'
 
 const HeaderOrganism: React.FC = props => {
   return (
     <StyledView testID="HeaderOrganism" {...props}>
       <StyledLogoAtom />
-      <StyledInputAtom />
+      <StyledInputAtom
+        icon={
+          <Image
+            style={{ width: 20, height: 20 }}
+            source={require('shared/presentation/statics/icons/search.png')}
+          />
+        }
+      />
     </StyledView>
   )
 }
