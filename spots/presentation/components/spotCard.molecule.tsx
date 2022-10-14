@@ -21,7 +21,8 @@ const SpotCardMolecule: React.FC<Props> = props => {
 }
 
 const StyledView = styled.View`
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 0;
 `
 
 const StyledTitle = styled.Text`

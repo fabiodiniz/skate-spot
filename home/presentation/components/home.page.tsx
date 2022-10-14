@@ -1,5 +1,5 @@
-import HeaderOrganism from 'shared/presentation/components/header.organism'
-import MenuOrganism from 'shared/presentation/components/menu.organism'
+import DashboardTemplate from 'shared/presentation/components/dashboard.template'
+
 import SpotListOrganism from 'spots/presentation/components/spotList.organism'
 
 import styled from 'styled-components/native'
@@ -7,9 +7,9 @@ import styled from 'styled-components/native'
 const HomePage: React.FC = () => {
   return (
     <StyledPage testID="HomePage">
-      <StyledHeaderOrganism />
-      <StyledSpotListOrganism />
-      <StyledHMenuOrganism />
+      <DashboardTemplate>
+        <StyledSpotListOrganism />
+      </DashboardTemplate>
     </StyledPage>
   )
 }
@@ -19,18 +19,8 @@ const StyledPage = styled.SafeAreaView`
   background: black;
 `
 
-const StyledHeaderOrganism = styled(HeaderOrganism)`
-  flex-grow: 0;
-  flex-shrink: 0;
-`
-
 const StyledSpotListOrganism = styled(SpotListOrganism)`
   flex: 1;
-`
-
-const StyledHMenuOrganism = styled(MenuOrganism)`
-  flex-grow: 0;
-  flex-shrink: 0;
 `
 
 export default HomePage

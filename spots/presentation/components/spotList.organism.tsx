@@ -30,6 +30,8 @@ const SpotListOrganism: React.FC = props => {
     <StyledView testID="SpotListOrganism" {...props}>
       <StyledTitle>Spots</StyledTitle>
       <SpotCardMolecule spot={fakeSpot} />
+      <SpotCardMolecule spot={fakeSpot} />
+      <SpotCardMolecule spot={fakeSpot} />
       <ButtonAtom onPress={() => logout.execute()} title="Logout" />
     </StyledView>
   )
@@ -39,6 +41,7 @@ const StyledView = styled.View`
   flex: 1;
   background: ${theme.colors.primary};
   padding: 12px;
+  overflow: auto;
 `
 
 const StyledTitle = styled.Text`
