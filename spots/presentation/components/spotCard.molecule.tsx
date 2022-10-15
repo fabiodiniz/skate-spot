@@ -16,6 +16,9 @@ const SpotCardMolecule: React.FC<Props> = props => {
         {props.spot.name}
       </StyledTitle>
       <StyledImage source={{ uri: props.spot.image }} />
+      <StyledDescription testID="SpotCardMoleculeDescription">
+        {props.spot.description}
+      </StyledDescription>
     </StyledView>
   )
 }
@@ -23,6 +26,7 @@ const SpotCardMolecule: React.FC<Props> = props => {
 const StyledView = styled.View`
   flex-grow: 1;
   flex-shrink: 0;
+  margin: 10px 0;
 `
 
 const StyledTitle = styled.Text`
@@ -37,6 +41,13 @@ const StyledImage = styled.Image`
   height: 200px;
   border-radius: 10px;
   margin-top: 12px;
+`
+
+const StyledDescription = styled.Text`
+  font-size: 14px;
+  color: ${theme.colors.white};
+  font-family: 'RobotoSlab_400Regular';
+  margin-top: 8px;
 `
 
 export default SpotCardMolecule
