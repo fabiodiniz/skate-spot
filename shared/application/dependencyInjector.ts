@@ -1,6 +1,7 @@
 // Register Adapters
 import 'auth/infra/firebaseAuth.adapter'
 import 'auth/infra/sessionStore.adapter'
+import 'shared/infra/adapters/dashboardStore.adapter'
 import 'shared/infra/adapters/http.adapter'
 import 'rootStore'
 

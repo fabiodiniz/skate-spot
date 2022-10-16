@@ -4,9 +4,9 @@ import SpotListOrganism from 'spots/presentation/components/spotList.organism'
 
 import styled from 'styled-components/native'
 
-const HomePage: React.FC = () => {
+const SpotsPage: React.FC = () => {
   return (
-    <StyledPage testID="HomePage">
+    <StyledPage testID="SpotsPage">
       <DashboardTemplate>
         <StyledSpotListOrganism />
       </DashboardTemplate>
@@ -23,4 +23,4 @@ const StyledSpotListOrganism = styled(SpotListOrganism)`
   flex: 1;
 `
 
-export default HomePage
+export default SpotsPage

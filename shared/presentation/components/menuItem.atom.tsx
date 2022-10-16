@@ -1,14 +1,16 @@
 import React from 'react'
+import { TouchableOpacity } from 'react-native'
 import styled from 'styled-components/native'
 
 type Props = {
   active?: boolean
   label: string
+  onPress?: () => void
 }
 
 const MenuItemAtom: React.FC<Props> = props => {
   return (
-    <StyledView testID="MenuItemAtom" {...props}>
+    <StyledView testID="MenuItemAtom" {...props} onPress={props.onPress}>
       <StyledTextContainer active={props.active}>
         <StyledText active={props.active}>{props.label}</StyledText>
       </StyledTextContainer>
@@ -16,7 +18,7 @@ const MenuItemAtom: React.FC<Props> = props => {
   )
 }
 
-const StyledView = styled.View`
+const StyledView = styled(TouchableOpacity)`
   flex: 1;
   justify-content: center;
   align-items: center;

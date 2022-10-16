@@ -4,6 +4,7 @@ const enum DependencyEnum {
   HTTP_ADAPTER = 'httpAdapter',
   FIREBASE_AUTH_ADAPTER = 'firebaseAuth.adapter',
   SESSION_STORE_ADAPTER = 'sessionStore.adapter',
+  DASHBOARD_STORE_ADAPTER = 'dashboardStore.adapter',
 
   // Use Cases
   RELOAD_SESSION_CASE = 'reloadSession.caseImpl',
