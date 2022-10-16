@@ -20,6 +20,11 @@ const DashboardTemplate: React.FC<Props> = props => {
   )
 }
 
+const StyledView = styled.SafeAreaView`
+  flex: 1;
+  flex-direction: column;
+`
+
 const StyledHeaderOrganism = styled(HeaderOrganism)`
   flex-grow: 0;
   flex-shrink: 0;
@@ -33,11 +38,6 @@ const StyledContent = styled.ScrollView`
 const StyledMenuOrganism = styled(MenuOrganism)`
   flex-grow: 0;
   flex-shrink: 0;
-`
-
-const StyledView = styled.SafeAreaView`
-  flex: 1;
-  flex-direction: column;
 `
 
 export default DashboardTemplate
