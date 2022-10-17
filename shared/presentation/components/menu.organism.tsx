@@ -6,11 +6,12 @@ import { DashboardStorePort } from 'shared/data/ports/dashboardStore.port'
 import MenuItemAtom from 'shared/presentation/components/menuItem.atom'
 
 import { useNavigation } from '@react-navigation/native'
-import React, { useCallback } from 'react'
+import { observer } from 'mobx-react-lite'
+import React, { useCallback, useEffect } from 'react'
 import styled from 'styled-components/native'
 import { container } from 'tsyringe'
 
-const MenuOrganism: React.FC = props => {
+const MenuOrganism: React.FC = observer(props => {
   const navigation = useNavigation()
   const dashboardStore = container.resolve<DashboardStorePort>(
     DependencyEnum.DASHBOARD_STORE_ADAPTER
@@ -24,6 +25,19 @@ const MenuOrganism: React.FC = props => {
     navigation.navigate(tab as never)
     dashboardStore.setActiveTab(tab)
   }, [])
+
+  useEffect(() => {
+    const state = navigation.getState()
+
+    switch (state.routes[state.index].name) {
+      case RouterEnum.SPOTS:
+        dashboardStore.setActiveTab(RouterEnum.SPOTS)
+        break
+      case RouterEnum.PROFILE:
+        dashboardStore.setActiveTab(RouterEnum.PROFILE)
+        break
+    }
+  }, [navigation.getState().index])
 
   return (
     <StyledView testID="MenuOrganism" {...props}>
@@ -39,7 +53,7 @@ const MenuOrganism: React.FC = props => {
       />
     </StyledView>
   )
-}
+})
 
 const StyledView = styled.View`
   flex-direction: row;
