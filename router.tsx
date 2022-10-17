@@ -1,9 +1,11 @@
 import DependencyEnum from 'shared/domain/entities/dependencyEnum'
+import { RouterEnum } from 'shared/domain/entities/routes'
 
 import { SessionStorePort } from 'auth/data/ports/sessionStore.port'
 
 import LoginFactory from 'auth/application/login.factory'
-import HomeFactory from 'home/application/home.factory'
+import ProfileFactory from 'profile/application/profile.factory'
+import SpotsFactory from 'spots/application/spots.factory'
 
 import { NavigationContainer, Route } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
@@ -26,7 +28,7 @@ const Router: React.FC = observer(() => {
     prefixes: [createURL('/'), 'skate-spot://'],
     config: {
       screens: {
-        Home: '/',
+        Spots: '/',
         Login: '/login',
       },
     },
@@ -46,11 +48,31 @@ const Router: React.FC = observer(() => {
     >
       <Stack.Navigator initialRouteName="Login">
         {sessionStore.get() ? (
-          <Stack.Screen name="Home" options={{ headerShown: false }}>
-            {() => <HomeFactory />}
-          </Stack.Screen>
+          <>
+            <Stack.Screen
+              name={RouterEnum.SPOTS}
+              options={{ headerShown: false }}
+            >
+              {() => <SpotsFactory />}
+            </Stack.Screen>
+            <Stack.Screen
+              name={RouterEnum.PROFILE}
+              options={{
+                headerShown: false,
+                transitionSpec: {
+                  open: { animation: 'spring', config: { speed: 100000 } },
+                  close: { animation: 'spring', config: { speed: 100000 } },
+                },
+              }}
+            >
+              {() => <ProfileFactory />}
+            </Stack.Screen>
+          </>
         ) : (
-          <Stack.Screen name="Login" options={{ headerShown: false }}>
+          <Stack.Screen
+            name={RouterEnum.LOGIN}
+            options={{ headerShown: false }}
+          >
             {() => <LoginFactory />}
           </Stack.Screen>
         )}

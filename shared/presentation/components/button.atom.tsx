@@ -1,9 +1,7 @@
 import theme from 'shared/presentation/styles/settings/theme.style'
 
 import {
-  View,
   ButtonProps,
-  TouchableOpacity,
   Text,
   NativeSyntheticEvent,
   NativeTouchEvent,
@@ -24,6 +22,7 @@ type Props = ButtonProps & CustomProps
 
 const ButtonAtom = (props: Props) => {
   const onPress = (ev: NativeSyntheticEvent<NativeTouchEvent>) => {
+    if (!props.onPress) return
     props.onPress(ev)
   }
 
@@ -40,12 +39,12 @@ const ButtonAtom = (props: Props) => {
   )
 }
 
-const StyledTouchableOpacity = styled(TouchableOpacity)`
-  border-radius: 50px;
-  opacity: ${props => (props.disabled ? 0.5 : 1)};
+const StyledTouchableOpacity = styled.TouchableOpacity`
+  flex: 1;
+  margin: 12px;
 `
 
-const StyledView = styled(View)<CustomProps>`
+const StyledView = styled.View<CustomProps>`
   padding: 16px 32px;
   background-color: ${props => {
     if (props.flat) return 'transparent'

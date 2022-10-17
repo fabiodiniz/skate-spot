@@ -1,6 +1,6 @@
 import LoginFormOrganism from 'auth/presentation/components/loginForm.organism'
 
-import BackgroundMolecule from 'auth/presentation/components/background.molecule'
+import BackgroundMolecule from 'shared/presentation/components/background.molecule'
 
 import LogoAtom from 'shared/presentation/components/logo.atom'
 import SpacerAtom from 'shared/presentation/components/spacer.atom'

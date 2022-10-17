@@ -24,7 +24,7 @@
     "android": {
       "package": "br.com.fabiodiniz.skatespot",
       "adaptiveIcon": {
-        "foregroundImage": "./shared/presentation/statics/adaptive-icon.png",
+        "foregroundImage": "./shared/presentation/statics/adaptiveIcon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
